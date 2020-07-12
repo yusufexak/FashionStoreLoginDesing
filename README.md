@@ -7,7 +7,7 @@ Giriş için Kolay Etkileşim, e-posta ile Kayıt veya sosyal medya hesapları i
 
 ## Uygulama Icinden Goruntuler
 
-
+![](https://raw.githubusercontent.com/yusufexak/FashionStoreLoginDesing/master/Assets/login.gif)
 
 A new Flutter project.
 
