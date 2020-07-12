@@ -1,4 +1,13 @@
-# logindesing
+# FashionStore Login 
+
+>Tasarım: https://dribbble.com/shots/5933623-Login-Signup-Joinwith-FashionStore
+
+FashiobStore Login tasarımı kodlanmıştır. 
+Giriş için Kolay Etkileşim, e-posta ile Kayıt veya sosyal medya hesapları ile katım bulunmaktadır. 
+
+## Uygulama Icinden Goruntuler
+
+
 
 A new Flutter project.
 
