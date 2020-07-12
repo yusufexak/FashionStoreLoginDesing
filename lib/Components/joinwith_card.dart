@@ -62,7 +62,7 @@ class JoinCard extends StatelessWidget {
                             fontSize: 12),
                       ),
                       Text(
-                        "TERMS OF USE & PrIVACY POLICY.",
+                        "TERMS OF USE & PRIVACY POLICY.",
                         style: th.headline1.copyWith(
                             color: Colors.pink.withOpacity(.5), fontSize: 12),
                       ),

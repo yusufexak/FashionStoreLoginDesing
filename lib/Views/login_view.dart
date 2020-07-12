@@ -11,6 +11,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  double page = 0, pageone = 1, pagetwo = 1;
+
   PageController pageCont;
   @override
   void initState() {
@@ -18,6 +20,17 @@ class _LoginState extends State<Login> {
     pageCont = PageController(
       viewportFraction: .9,
     );
+    pageCont.addListener(() {
+      setState(() {
+        page = pageCont.page;
+        if (page <= 1 && page > 0) {
+          pageone = 1 - page;
+        }
+        if (page <= 2 && page > 1) {
+          pagetwo = 1 - (page - 1);
+        }
+      });
+    });
   }
 
   @override
@@ -33,10 +46,72 @@ class _LoginState extends State<Login> {
           buildTitleText(textTheme),
           buildIndicator(),
           buildPages(),
-          Placeholder(
-            fallbackHeight: 65,
-          )
+          buildContinueButton(textTheme),
         ],
+      ),
+    );
+  }
+
+  Widget buildContinueButton(TextTheme textTheme) {
+    return Expanded(
+      flex: 2,
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(50),
+            child: SizedBox(
+              width: 120,
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Container(
+                    width: 120,
+                    height: 40,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(60),
+                        color: AppColors.kCyan),
+                  ),
+                  Transform.translate(
+                    offset: Offset(140 * pageone, 0),
+                    child: Container(
+                      width: 120,
+                      height: 40,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(60),
+                          color: AppColors.kPink),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: Offset(140 * pagetwo, 0),
+                    child: Container(
+                      width: 120,
+                      height: 40,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(60),
+                          color: AppColors.kBlue),
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Continio ",
+                        style: textTheme.headline1
+                            .copyWith(color: Colors.white, fontSize: 16),
+                      ),
+                      Icon(
+                        Icons.play_arrow,
+                        size: 15,
+                        color: Colors.white,
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -64,7 +139,7 @@ class _LoginState extends State<Login> {
           controller: pageCont,
           count: 3,
           effect: SwapEffect(
-              activeDotColor: Colors.pink.withOpacity(.7),
+              activeDotColor: AppColors.kPink,
               radius: 1,
               dotWidth: 25,
               dotHeight: 2.5),

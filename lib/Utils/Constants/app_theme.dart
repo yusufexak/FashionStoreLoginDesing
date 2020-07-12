@@ -25,7 +25,7 @@ class AppTheme {
         ),
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(
-            color: Colors.grey,
+            color: Colors.grey.withOpacity(.7),
             width: .5,
           ),
         ),
